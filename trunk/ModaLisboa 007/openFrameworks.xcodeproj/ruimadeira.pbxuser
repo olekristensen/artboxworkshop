@@ -394,7 +394,7 @@
 		fRef = E384F34E1074EAE60022B876 /* SceneSmoke.cpp */;
 		name = "SceneSmoke.cpp: 169";
 		rLen = 0;
-		rLoc = 5762;
+		rLoc = 5758;
 		rType = 0;
 		vrLen = 1108;
 		vrLoc = 5283;
@@ -468,6 +468,36 @@
 		rType = 0;
 		vrLen = 824;
 		vrLoc = 319;
+	};
+	E37CE53C108DE97900115EBF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E4B69E1E0A3A1BDC003C02F2 /* testApp.cpp */;
+		name = "testApp.cpp: 32";
+		rLen = 98;
+		rLoc = 811;
+		rType = 0;
+		vrLen = 859;
+		vrLoc = 319;
+	};
+	E37CE53D108DE97900115EBF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E384F34E1074EAE60022B876 /* SceneSmoke.cpp */;
+		name = "SceneSmoke.cpp: 169";
+		rLen = 0;
+		rLoc = 5758;
+		rType = 0;
+		vrLen = 1108;
+		vrLoc = 5283;
+	};
+	E37CE53E108DE97900115EBF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E384F34E1074EAE60022B876 /* SceneSmoke.cpp */;
+		name = "SceneSmoke.cpp: 169";
+		rLen = 0;
+		rLoc = 5758;
+		rType = 0;
+		vrLen = 1292;
+		vrLoc = 4776;
 	};
 	E383B9B3107CA72F00B5B02B /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -544,8 +574,8 @@
 	E384F34E1074EAE60022B876 /* SceneSmoke.cpp */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {880, 5225}}";
-			sepNavSelRange = "{5762, 0}";
-			sepNavVisRange = "{5283, 1108}";
+			sepNavSelRange = "{5758, 0}";
+			sepNavVisRange = "{4776, 1292}";
 			sepNavWindowFrame = "{{118, 4}, {1162, 774}}";
 		};
 	};
@@ -1382,6 +1412,9 @@
 			E37CE531108DE7F800115EBF /* PBXTextBookmark */ = E37CE531108DE7F800115EBF /* PBXTextBookmark */;
 			E37CE532108DE7F800115EBF /* PBXTextBookmark */ = E37CE532108DE7F800115EBF /* PBXTextBookmark */;
 			E37CE536108DE81100115EBF /* PBXTextBookmark */ = E37CE536108DE81100115EBF /* PBXTextBookmark */;
+			E37CE53C108DE97900115EBF /* PBXTextBookmark */ = E37CE53C108DE97900115EBF /* PBXTextBookmark */;
+			E37CE53D108DE97900115EBF /* PBXTextBookmark */ = E37CE53D108DE97900115EBF /* PBXTextBookmark */;
+			E37CE53E108DE97900115EBF /* PBXTextBookmark */ = E37CE53E108DE97900115EBF /* PBXTextBookmark */;
 			E383B9B3107CA72F00B5B02B = E383B9B3107CA72F00B5B02B /* PBXTextBookmark */;
 			E383BA02107CB45100B5B02B = E383BA02107CB45100B5B02B /* PBXTextBookmark */;
 			E383BA03107CB45100B5B02B = E383BA03107CB45100B5B02B /* PBXTextBookmark */;
@@ -1446,8 +1479,8 @@
 	E4B69E1E0A3A1BDC003C02F2 /* testApp.cpp */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {880, 1995}}";
-			sepNavSelRange = "{1012, 0}";
-			sepNavVisRange = "{319, 824}";
+			sepNavSelRange = "{811, 98}";
+			sepNavVisRange = "{319, 859}";
 			sepNavWindowFrame = "{{15, 4}, {1162, 774}}";
 		};
 	};

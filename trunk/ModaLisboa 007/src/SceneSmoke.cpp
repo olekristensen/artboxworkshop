@@ -142,7 +142,7 @@ void SceneSmoke::draw(){
 	glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 	backgroundTexture.draw(bgX, bgY);
 	//backgroundTexture.draw(camPos.x, camPos.y);*/
-	//cam.place();
+	cam.place();
 	ofSetRectMode(OF_RECTMODE_CORNER);
 	shader.setShaderActive(true);
 	smokeTexture.getTextureReference().bind();
@@ -166,7 +166,7 @@ void SceneSmoke::draw(){
 	glDisableClientState(GL_COLOR_ARRAY);
 	smokeTexture.getTextureReference().unbind();
 	shader.setShaderActive(false);
-	//cam.remove();
+	cam.remove();
 	/*glDisable(GL_DEPTH_TEST);
 	glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 	glPushMatrix();

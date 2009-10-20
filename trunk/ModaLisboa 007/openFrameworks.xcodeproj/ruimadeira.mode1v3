@@ -277,13 +277,15 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>44</integer>
+									<integer>28</integer>
+									<integer>26</integer>
+									<integer>24</integer>
 									<integer>3</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 212}, {307, 633}}</string>
+							<string>{{0, 144}, {307, 633}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -320,7 +322,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>testApp.cpp</string>
+								<string>SceneSmoke.cpp</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -328,11 +330,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>testApp.cpp</string>
+										<string>SceneSmoke.cpp</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>E37CE536108DE81100115EBF</string>
+										<string>E37CE53E108DE97900115EBF</string>
 										<key>history</key>
 										<array>
 											<string>E385B6BC105519C600FD837B</string>
@@ -395,10 +397,10 @@
 											<string>E37CE4A2108DE3AC00115EBF</string>
 											<string>E37CE4FF108DE5CA00115EBF</string>
 											<string>E37CE519108DE76A00115EBF</string>
-											<string>E37CE51A108DE76A00115EBF</string>
 											<string>E37CE530108DE7F800115EBF</string>
 											<string>E37CE531108DE7F800115EBF</string>
-											<string>E37CE51B108DE76A00115EBF</string>
+											<string>E37CE53C108DE97900115EBF</string>
+											<string>E37CE53D108DE97900115EBF</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -594,7 +596,6 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>E37CE537108DE81100115EBF</string>
 		<string>E37CE526108DE76A00115EBF</string>
 		<string>E37CE527108DE76A00115EBF</string>
 		<string>1C78EAAD065D492600B07095</string>
