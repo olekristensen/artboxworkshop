@@ -64,21 +64,21 @@ void ProjectionSurfacesObject::drawCalibration(){
 
 void ProjectionSurfaces::setup(){
 	/*
-	for(int i=0;i<_numSurfaces ;i++){
-		surfaces.push_back(new ProjectionSurfacesObject);
-		surfaces[i]->warp = new Warp();
-		surfaces[i]->coordWarp = new coordWarping;
-		surfaces[i]->aspect = 1.0;
-		surfaces[i]->recalculate();
-	}	
-	
-	selectedCorner = 0;
-	selectedKeystoner = 0;
-	*/
+	 for(int i=0;i<_numSurfaces ;i++){
+	 surfaces.push_back(new ProjectionSurfacesObject);
+	 surfaces[i]->warp = new Warp();
+	 surfaces[i]->coordWarp = new coordWarping;
+	 surfaces[i]->aspect = 1.0;
+	 surfaces[i]->recalculate();
+	 }	
+	 
+	 selectedCorner = 0;
+	 selectedKeystoner = -1;
+	 */
 	ofAddListener(ofEvents.mousePressed, this, &ProjectionSurfaces::mousePressed);
 	ofAddListener(ofEvents.mouseDragged, this, &ProjectionSurfaces::mouseDragged);
 	ofAddListener(ofEvents.keyPressed, this, &ProjectionSurfaces::keyPressed);	
-
+	
 	keystoneXml = new ofxXmlSettings;
 	keystoneXml->loadFile("../../../artboxLibraries/surfaces.xml");
 	//loadXml();
@@ -94,7 +94,7 @@ void ProjectionSurfaces::addSurface(ProjectionSurfacesObject * surface){
 	
 	selectedCorner = 0;
 	selectedKeystoner = 0;
-
+	
 	loadXml();
 }
 
@@ -132,48 +132,69 @@ ofxVec2f  ProjectionSurfaces::convertBetweenSurfaces(int obj1, int obj2,  ofxVec
 }
 
 void ProjectionSurfaces::mousePressed(ofMouseEventArgs & args){
-	ofxVec2f curMouse = ofxVec2f((float)args.x/ofGetWidth(), ((float)args.y/ofGetHeight()));
-	selectedCorner = surfaces[selectedKeystoner]->warp->GetClosestCorner(curMouse.x, curMouse.y);
-	lastMousePos = curMouse;
+	if(selectedKeystoner != -1){		
+		ofxVec2f curMouse = ofxVec2f((float)args.x/ofGetWidth(), ((float)args.y/ofGetHeight()));
+		selectedCorner = surfaces[selectedKeystoner]->warp->GetClosestCorner(curMouse.x, curMouse.y);
+		lastMousePos = curMouse;
+	}
 }
 
 void ProjectionSurfaces::mouseDragged(ofMouseEventArgs & args){
-	ofxVec2f curMouse = ofxVec2f((float)args.x/ofGetWidth(),( (float)args.y/ofGetHeight()));
-	ofxVec2f newPos =  surfaces[selectedKeystoner]->warp->corners[selectedCorner] + (curMouse-lastMousePos);
-	surfaces[selectedKeystoner]->SetCorner(selectedCorner, newPos.x, newPos.y);
-	lastMousePos = curMouse;
-	for(int i=0;i<surfaces.size();i++){
-		surfaces[i]->recalculate();
-	}	
-	saveXml();
+	if(selectedKeystoner != -1){
+		
+		ofxVec2f curMouse = ofxVec2f((float)args.x/ofGetWidth(),( (float)args.y/ofGetHeight()));
+		ofxVec2f newPos =  surfaces[selectedKeystoner]->warp->corners[selectedCorner] + (curMouse-lastMousePos);
+		surfaces[selectedKeystoner]->SetCorner(selectedCorner, newPos.x, newPos.y);
+		lastMousePos = curMouse;
+		for(int i=0;i<surfaces.size();i++){
+			surfaces[i]->recalculate();
+		}	
+		saveXml();
+	}
 }
 
 void ProjectionSurfaces::keyPressed(ofKeyEventArgs & args){
-	ofxVec2f newPos =  surfaces[selectedKeystoner]->warp->corners[selectedCorner] ;
 	bool setCorner = true;
-	if(args.key == OF_KEY_DOWN){
-		newPos -= ofxVec2f(0,-0.0003);
-	}
-	if(args.key == OF_KEY_UP){
-		newPos += ofxVec2f(0,-0.0003);
-	}
-	if(args.key == OF_KEY_LEFT){
-		newPos += ofxVec2f(-0.0003,0);
-	}
-	if(args.key == OF_KEY_RIGHT){
-		newPos -= ofxVec2f(-0.0003,0);
+	bool doneSomething = false;
+	if(selectedKeystoner != -1){
+		ofxVec2f newPos =  surfaces[selectedKeystoner]->warp->corners[selectedCorner] ;
+		
+		
+		if(args.key == OF_KEY_DOWN){
+			newPos -= ofxVec2f(0,-0.0003);
+			doneSomething = true;
+		}
+		if(args.key == OF_KEY_UP){
+			newPos += ofxVec2f(0,-0.0003);
+			doneSomething = true;
+		}
+		if(args.key == OF_KEY_LEFT){
+			newPos += ofxVec2f(-0.0003,0);
+			doneSomething = true;
+		}
+		if(args.key == OF_KEY_RIGHT){
+			newPos -= ofxVec2f(-0.0003,0);
+			doneSomething = true;
+		}
+		
+		if(setCorner){
+			surfaces[selectedKeystoner]->SetCorner(selectedCorner, newPos.x, newPos.y);
+			for(int i=0;i<surfaces.size();i++){
+				surfaces[i]->recalculate();
+			}	
+		}
 	}
 	if(args.key >= '1' && args.key <= '9'){
 		selectedKeystoner = args.key-49;
 		setCorner = false;
+		doneSomething = true;
 	}
-	if(setCorner){
-		surfaces[selectedKeystoner]->SetCorner(selectedCorner, newPos.x, newPos.y);
-		for(int i=0;i<surfaces.size();i++){
-			surfaces[i]->recalculate();
-		}	
+	
+	if(!doneSomething){
+		selectedKeystoner = -1;
 	}
 	saveXml();
+	
 }
 
 void ProjectionSurfaces::saveXml(){

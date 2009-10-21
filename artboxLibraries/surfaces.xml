@@ -1,31 +1,18 @@
 <surface>
-
-    <corner x="0.057617" y="0.091146"></corner>
-    <corner x="0.847656" y="0.083333"></corner>
-    <corner x="0.914062" y="0.934896"></corner>
-    <corner x="0.036133" y="0.894531"></corner>
+    <corner x="0.088867" y="0.139323"></corner>
+    <corner x="0.571289" y="0.125000"></corner>
+    <corner x="0.567383" y="0.462240"></corner>
+    <corner x="0.205078" y="0.593749"></corner>
 </surface>
 <surface>
-    <corner x="0.177952" y="0.829642"></corner>
-    <corner x="0.237330" y="0.830024"></corner>
-    <corner x="0.229135" y="0.880031"></corner>
-    <corner x="0.167510" y="0.876832"></corner>
+    <corner x="0.136936" y="0.794486"></corner>
+    <corner x="0.363308" y="0.594348"></corner>
+    <corner x="0.334604" y="0.972478"></corner>
+    <corner x="0.152862" y="0.928915"></corner>
 </surface>
 <surface>
-    <corner x="0.671652" y="0.842663"></corner>
-    <corner x="0.751378" y="0.841341"></corner>
-    <corner x="0.739795" y="0.997806"></corner>
-    <corner x="0.660986" y="0.991913"></corner>
-</surface>
-<surface>
-    <corner x="0.671652" y="0.842663"></corner>
-    <corner x="0.751378" y="0.841341"></corner>
-    <corner x="0.739795" y="0.997806"></corner>
-    <corner x="0.660986" y="0.991913"></corner>
-</surface>
-<surface>
-    <corner x="0.671652" y="0.842663"></corner>
-    <corner x="0.751378" y="0.841341"></corner>
-    <corner x="0.739795" y="0.997806"></corner>
-    <corner x="0.660986" y="0.991913"></corner>
+    <corner x="0.470480" y="0.173392"></corner>
+    <corner x="0.976964" y="0.231966"></corner>
+    <corner x="0.887256" y="0.678795"></corner>
+    <corner x="0.474463" y="0.855194"></corner>
 </surface>

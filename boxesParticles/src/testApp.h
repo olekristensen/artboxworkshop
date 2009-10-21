@@ -21,9 +21,6 @@ class testApp : public ofBaseApp{
 		void windowResized(int w, int h);
 	
 	ProjectionSurfaces surfaces;
-	CameraSurfaces cameraSurfaces;
-	
-	ofVideoGrabber * grabber;
 
 };
 
