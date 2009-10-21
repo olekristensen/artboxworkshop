@@ -231,8 +231,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -326,7 +324,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>DD1849EC108CF8CD00835841</string>
+										<string>DD3FD435108EFF9A0057EF8E</string>
 										<key>history</key>
 										<array>
 											<string>DD184876108CCC7D00835841</string>
@@ -340,7 +338,7 @@
 											<string>DD184963108CDAFD00835841</string>
 											<string>DD184982108CDBAC00835841</string>
 											<string>DD18499D108CDC9500835841</string>
-											<string>DD18499E108CDC9500835841</string>
+											<string>DD3FD434108EFF9A0057EF8E</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -354,21 +352,23 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1233, 431}}</string>
+								<string>{{0, 0}, {1233, 404}}</string>
 								<key>RubberWindowFrame</key>
 								<string>0 92 1440 786 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>431pt</string>
+							<string>404pt</string>
 						</dict>
 						<dict>
 							<key>Proportion</key>
-							<string>309pt</string>
+							<string>336pt</string>
 							<key>Tabs</key>
 							<array>
 								<dict>
+									<key>BecomeActive</key>
+									<true/>
 									<key>ContentConfiguration</key>
 									<dict>
 										<key>PBXProjectModuleGUID</key>
@@ -379,7 +379,9 @@
 									<key>GeometryConfiguration</key>
 									<dict>
 										<key>Frame</key>
-										<string>{{10, 27}, {766, 282}}</string>
+										<string>{{10, 27}, {1233, 309}}</string>
+										<key>RubberWindowFrame</key>
+										<string>0 92 1440 786 0 0 1440 878 </string>
 									</dict>
 									<key>Module</key>
 									<string>XCDetailModule</string>
@@ -396,8 +398,6 @@
 									<dict>
 										<key>Frame</key>
 										<string>{{10, 27}, {1233, 282}}</string>
-										<key>RubberWindowFrame</key>
-										<string>0 92 1440 786 0 0 1440 878 </string>
 									</dict>
 									<key>Module</key>
 									<string>PBXProjectFindModule</string>
@@ -463,11 +463,11 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>DD1847DE108CC60500835841</string>
+				<string>DD3FD436108EFF9A0057EF8E</string>
 				<string>1CA23ED40692098700951B8B</string>
-				<string>DD1847DF108CC60500835841</string>
+				<string>DD3FD437108EFF9A0057EF8E</string>
 				<string>DD1847DC108CC60500835841</string>
-				<string>DD1847E0108CC60500835841</string>
+				<string>DD3FD438108EFF9A0057EF8E</string>
 				<string>1CA23EDF0692099D00951B8B</string>
 				<string>1CA23EE00692099D00951B8B</string>
 				<string>1CA23EE10692099D00951B8B</string>
@@ -615,14 +615,14 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>DD184882108CCCD400835841</string>
+				<string>DD3FD439108EFF9A0057EF8E</string>
 				<string>1CCC7628064C1048000F2A68</string>
 				<string>1CCC7629064C1048000F2A68</string>
-				<string>DD184883108CCCD400835841</string>
-				<string>DD184884108CCCD400835841</string>
-				<string>DD184885108CCCD400835841</string>
-				<string>DD184886108CCCD400835841</string>
-				<string>DD1847DC108CC60500835841</string>
+				<string>DD3FD43A108EFF9A0057EF8E</string>
+				<string>DD3FD43B108EFF9A0057EF8E</string>
+				<string>DD3FD43C108EFF9A0057EF8E</string>
+				<string>DD3FD43D108EFF9A0057EF8E</string>
+				<string>DD3FD43E108EFF9A0057EF8E</string>
 			</array>
 			<key>ToolbarConfigUserDefaultsMinorVersion</key>
 			<string>2</string>
@@ -656,8 +656,9 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>DD184888108CCCD400835841</string>
-		<string>DD184889108CCCD400835841</string>
+		<string>DD3FD43F108EFF9A0057EF8E</string>
+		<string>DD3FD440108EFF9A0057EF8E</string>
+		<string>DD3FD441108EFF9A0057EF8E</string>
 		<string>/Users/jonas/Documents/udvilking/of_preRelease_v0.06_xcode_FAT/apps/artbox workshop/_emptyExample/openFrameworks.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
