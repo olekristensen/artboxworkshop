@@ -10,6 +10,7 @@ public:
 	Warp * warp;
 	coordWarping * coordWarp;
 	string name;
+	int surfaceId;
 	
 	ofxPoint2f * corners[4];
 	
@@ -17,6 +18,7 @@ public:
 	
 	void recalculate();
 	void SetCorner(int n, float x, float y);
+	void drawCalibration();
 };
 
 
@@ -24,6 +26,7 @@ public:
 class ProjectionSurfaces {
 public:
 	void setup();
+	void addSurface(ProjectionSurfacesObject * o);
 	
 	vector<ProjectionSurfacesObject*> surfaces;
 	ProjectionSurfacesObject * getSurface(int surface);
