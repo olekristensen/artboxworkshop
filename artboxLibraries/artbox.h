@@ -5,3 +5,4 @@
 #define BACKGROUND 2
 
 #include "projectionSurfaces.h"
+#include "cameraSurfaces.h"

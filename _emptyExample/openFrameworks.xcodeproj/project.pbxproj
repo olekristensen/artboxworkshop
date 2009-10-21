@@ -26,6 +26,7 @@
 		DD184846108CC68C00835841 /* ofxVec2f.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD18483B108CC68C00835841 /* ofxVec2f.cpp */; };
 		DD184847108CC68C00835841 /* ofxVec3f.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD18483D108CC68C00835841 /* ofxVec3f.cpp */; };
 		DD184848108CC68C00835841 /* ofxVec4f.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD18483F108CC68C00835841 /* ofxVec4f.cpp */; };
+		DD3FD44D108F01720057EF8E /* cameraSurfaces.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD3FD44C108F01720057EF8E /* cameraSurfaces.cpp */; };
 		E37CE4D1108DE42E00115EBF /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E37CE4C5108DE42E00115EBF /* tinyxml.cpp */; };
 		E37CE4D2108DE42E00115EBF /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E37CE4C7108DE42E00115EBF /* tinyxmlerror.cpp */; };
 		E37CE4D3108DE42E00115EBF /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E37CE4C8108DE42E00115EBF /* tinyxmlparser.cpp */; };
@@ -133,6 +134,8 @@
 		DD18483F108CC68C00835841 /* ofxVec4f.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxVec4f.cpp; sourceTree = "<group>"; };
 		DD184840108CC68C00835841 /* ofxVec4f.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxVec4f.h; sourceTree = "<group>"; };
 		DD184841108CC68C00835841 /* ofxVectorMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxVectorMath.h; sourceTree = "<group>"; };
+		DD3FD44B108F01720057EF8E /* cameraSurfaces.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cameraSurfaces.h; sourceTree = "<group>"; };
+		DD3FD44C108F01720057EF8E /* cameraSurfaces.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cameraSurfaces.cpp; sourceTree = "<group>"; };
 		E37CE4C5108DE42E00115EBF /* tinyxml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyxml.cpp; path = ../../../addons/ofxXmlSettings/libs/tinyxml.cpp; sourceTree = SOURCE_ROOT; };
 		E37CE4C6108DE42E00115EBF /* tinyxml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tinyxml.h; path = ../../../addons/ofxXmlSettings/libs/tinyxml.h; sourceTree = SOURCE_ROOT; };
 		E37CE4C7108DE42E00115EBF /* tinyxmlerror.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyxmlerror.cpp; path = ../../../addons/ofxXmlSettings/libs/tinyxmlerror.cpp; sourceTree = SOURCE_ROOT; };
@@ -352,6 +355,8 @@
 				DD1847E5108CC61900835841 /* artbox.h */,
 				DD1847E6108CC61900835841 /* projectionSurfaces.cpp */,
 				DD1847E7108CC61900835841 /* projectionSurfaces.h */,
+				DD3FD44B108F01720057EF8E /* cameraSurfaces.h */,
+				DD3FD44C108F01720057EF8E /* cameraSurfaces.cpp */,
 			);
 			name = artboxLibraries;
 			path = ../artboxLibraries;
@@ -1124,6 +1129,7 @@
 				E37CE4D2108DE42E00115EBF /* tinyxmlerror.cpp in Sources */,
 				E37CE4D3108DE42E00115EBF /* tinyxmlparser.cpp in Sources */,
 				E37CE4D4108DE42E00115EBF /* ofxXmlSettings.cpp in Sources */,
+				DD3FD44D108F01720057EF8E /* cameraSurfaces.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
