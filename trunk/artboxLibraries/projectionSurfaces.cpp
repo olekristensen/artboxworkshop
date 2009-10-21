@@ -34,12 +34,37 @@ void ProjectionSurfacesObject::SetCorner(int n, float x, float y){
 	corners[n]->set(x,y);
 }
 
+void ProjectionSurfacesObject::drawCalibration(){
+	ofPoint pos[4];
+	for(int i=0; i<4; i++){
+		pos[i] = *corners[i];
+		pos[i].x *= ofGetWidth();
+		pos[i].y *= ofGetHeight();
+	}
+	
+	glColor3f(1.0f, 0.0f, 1.0f);
+	ofDrawBitmapString(ofToString(surfaceId), pos[0].x + 10, pos[0].y + 10);
+	glColor3f(1.0f, 0.0f, 0.0f);
+	
+	for(int i=0; i<4; i++){
+		ofCircle(pos[i].x, pos[i].y, 3);
+	}
+	glBegin(GL_LINE_STRIP);
+	for(int i=0; i<4; i++){
+		glVertex2f(pos[i].x, pos[i].y);
+	}
+	glVertex2f(pos[0].x, pos[0].y);
+	glEnd();
+}
+
+
 
 
 #pragma mark Class
 
 void ProjectionSurfaces::setup(){
-	for(int i=0;i<3;i++){
+	/*
+	for(int i=0;i<_numSurfaces ;i++){
 		surfaces.push_back(new ProjectionSurfacesObject);
 		surfaces[i]->warp = new Warp();
 		surfaces[i]->coordWarp = new coordWarping;
@@ -49,20 +74,38 @@ void ProjectionSurfaces::setup(){
 	
 	selectedCorner = 0;
 	selectedKeystoner = 0;
-	
+	*/
 	ofAddListener(ofEvents.mousePressed, this, &ProjectionSurfaces::mousePressed);
 	ofAddListener(ofEvents.mouseDragged, this, &ProjectionSurfaces::mouseDragged);
 	ofAddListener(ofEvents.keyPressed, this, &ProjectionSurfaces::keyPressed);	
-	
+
 	keystoneXml = new ofxXmlSettings;
 	keystoneXml->loadFile("../../../artboxLibraries/surfaces.xml");
-	loadXml();
-	
+	//loadXml();
 }
+
+void ProjectionSurfaces::addSurface(ProjectionSurfacesObject * surface){
+	surface->surfaceId = surfaces.size();
+	surfaces.push_back(surface);
+	surface->warp = new Warp();
+	surface->coordWarp = new coordWarping;
+	surface->aspect = 1.0;
+	surface->recalculate();
+	
+	selectedCorner = 0;
+	selectedKeystoner = 0;
+
+	loadXml();
+}
+
 ProjectionSurfacesObject * ProjectionSurfaces::getSurface(int surface){
 	return surfaces[surface];
 }
 void ProjectionSurfaces::applyProjection(int surface, float _w, float _h){
+	if(surface >= surfaces.size()){
+		ofLog(OF_LOG_WARNING, "surface index out of bounds");
+		return;
+	}
 	glPushMatrix();
 	ProjectionSurfacesObject * obj = getSurface(surface);
 	float setW = 1.0/ (obj->aspect);
