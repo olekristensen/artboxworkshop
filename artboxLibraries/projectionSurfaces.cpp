@@ -1,9 +1,6 @@
 #include "projectionSurfaces.h"
 
-
-
 #pragma mark Object
-
 
 ProjectionSurfacesObject::ProjectionSurfacesObject(){
 	for(int i=0;i<4;i++){
@@ -28,6 +25,8 @@ void ProjectionSurfacesObject::recalculate(){
 	a[2] = ofxPoint2f(1,1);
 	a[3] = ofxPoint2f(0,1);
 	coordWarp->calculateMatrix(a, warp->corners);
+
+	calcBoundingBox();
 }
 
 void ProjectionSurfacesObject::SetCorner(int n, float x, float y){
@@ -35,27 +34,75 @@ void ProjectionSurfacesObject::SetCorner(int n, float x, float y){
 }
 
 void ProjectionSurfacesObject::drawCalibration(){
-	ofPoint pos[4];
-	for(int i=0; i<4; i++){
-		pos[i] = *corners[i];
-		pos[i].x *= ofGetWidth();
-		pos[i].y *= ofGetHeight();
-	}
-	
 	glColor3f(1.0f, 0.0f, 1.0f);
-	ofDrawBitmapString(ofToString(surfaceId), pos[0].x + 10, pos[0].y + 10);
+	ofDrawBitmapString(ofToString(surfaceId), worldPts[0].x + 10, worldPts[0].y + 10);
 	glColor3f(1.0f, 0.0f, 0.0f);
 	
 	for(int i=0; i<4; i++){
-		ofCircle(pos[i].x, pos[i].y, 3);
+		ofCircle(worldPts[i].x, worldPts[i].y, 3);
 	}
 	glBegin(GL_LINE_STRIP);
 	for(int i=0; i<4; i++){
-		glVertex2f(pos[i].x, pos[i].y);
+		glVertex2f(worldPts[i].x, worldPts[i].y);
 	}
-	glVertex2f(pos[0].x, pos[0].y);
+	glVertex2f(worldPts[0].x, worldPts[0].y);
+	glEnd();
+	
+	glColor4f(1.0f, 1.0f, 0.0f, 1.0f);
+	glBegin(GL_LINE_STRIP);
+	glVertex2f(aabbMin.x, aabbMin.y);
+	glVertex2f(aabbMax.x, aabbMin.y);
+	glVertex2f(aabbMax.x, aabbMax.y);
+	glVertex2f(aabbMin.x, aabbMax.y);
+	glVertex2f(aabbMin.x, aabbMin.y);
 	glEnd();
 }
+
+void ProjectionSurfacesObject::calcBoundingBox(){
+	float w = ofGetWidth();
+	float h = ofGetHeight();
+	for(int i=0; i<4; i++){
+		worldPts[i].x = corners[i]->x * w;
+		worldPts[i].y = corners[i]->y * h;
+	}
+	aabbMin = worldPts[0];
+	aabbMax = worldPts[0];
+	for(int i=1; i<4; i++){
+		aabbMin.x = MIN(aabbMin.x, worldPts[i].x);
+		aabbMin.y = MIN(aabbMin.y, worldPts[i].y);
+		aabbMax.x = MAX(aabbMax.x, worldPts[i].x);
+		aabbMax.y = MAX(aabbMax.y, worldPts[i].y);
+	}
+}
+
+bool ProjectionSurfacesObject::isPointInside(float ptX, float ptY){
+	//from here: http://www.openframeworks.cc/forum/viewtopic.php?f=14&t=1126&p=5960&hilit=point+in+polygon#p5960
+	int counter = 0; 
+	int i; 
+	float xinters; 
+	ofPoint p1,p2; 
+	
+	p1 = worldPts[0]; 
+	for (i=1;i<=4;i++) { 
+		p2 = worldPts[i % 4]; 
+		if (ptY > MIN(p1.y,p2.y)) { 
+			if (ptY <= MAX(p1.y,p2.y)) { 
+				if (ptX <= MAX(p1.x,p2.x)) { 
+					if (p1.y != p2.y) { 
+						xinters = (ptY-p1.y)*(p2.x-p1.x)/(p2.y-p1.y)+p1.x; 
+						if (p1.x == p2.x || ptX <= xinters) 
+							counter++; 
+					} 
+				} 
+			} 
+		} 
+		p1 = p2; 
+	} 
+	
+	if (counter % 2 == 0) return false; 
+	return true; 
+}
+
 
 
 
@@ -71,10 +118,10 @@ void ProjectionSurfaces::setup(){
 	 surfaces[i]->aspect = 1.0;
 	 surfaces[i]->recalculate();
 	 }	
-	 
+	 */
 	 selectedCorner = 0;
 	 selectedKeystoner = -1;
-	 */
+	 
 	ofAddListener(ofEvents.mousePressed, this, &ProjectionSurfaces::mousePressed);
 	ofAddListener(ofEvents.mouseDragged, this, &ProjectionSurfaces::mouseDragged);
 	ofAddListener(ofEvents.keyPressed, this, &ProjectionSurfaces::keyPressed);	
@@ -158,8 +205,6 @@ void ProjectionSurfaces::keyPressed(ofKeyEventArgs & args){
 	bool doneSomething = false;
 	if(selectedKeystoner != -1){
 		ofxVec2f newPos =  surfaces[selectedKeystoner]->warp->corners[selectedCorner] ;
-		
-		
 		if(args.key == OF_KEY_DOWN){
 			newPos -= ofxVec2f(0,-0.0003);
 			doneSomething = true;
@@ -176,7 +221,6 @@ void ProjectionSurfaces::keyPressed(ofKeyEventArgs & args){
 			newPos -= ofxVec2f(-0.0003,0);
 			doneSomething = true;
 		}
-		
 		if(setCorner){
 			surfaces[selectedKeystoner]->SetCorner(selectedCorner, newPos.x, newPos.y);
 			for(int i=0;i<surfaces.size();i++){
@@ -194,7 +238,6 @@ void ProjectionSurfaces::keyPressed(ofKeyEventArgs & args){
 		selectedKeystoner = -1;
 	}
 	saveXml();
-	
 }
 
 void ProjectionSurfaces::saveXml(){
@@ -221,7 +264,5 @@ void ProjectionSurfaces::loadXml(){
 		keystoneXml->popTag();
 		getSurface(i)->recalculate();
 	}
-	
-	
 }
 
