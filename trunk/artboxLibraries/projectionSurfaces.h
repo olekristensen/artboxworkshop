@@ -13,12 +13,16 @@ public:
 	int surfaceId;
 	
 	ofxPoint2f * corners[4];
+	ofPoint worldPts[4];
+	ofPoint aabbMin, aabbMax;
 	
 	ProjectionSurfacesObject();
 	
 	void recalculate();
 	void SetCorner(int n, float x, float y);
 	void drawCalibration();
+	void calcBoundingBox();
+	bool isPointInside(float ptX, float ptY);
 };
 
 
